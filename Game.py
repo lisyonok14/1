@@ -8,7 +8,7 @@ img_dir = path.join(path.dirname(__file__), 'img')
 
 WIDTH = 480
 HEIGHT = 600
-FPS = 1
+FPS = 15
 
 # Задаем цвета
 WHITE = (255, 255, 255)
@@ -39,7 +39,7 @@ class Player(pygame.sprite.Sprite):
         self.speedx = 0
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_LEFT]:
-            self.speedx = 0
+            self.speedx = -8
         if keystate[pygame.K_RIGHT]:
             self.speedx = 8
         self.rect.x += self.speedx
@@ -80,7 +80,7 @@ class Bullet(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.bottom = y
         self.rect.centerx = x
-        self.speedy = 0
+        self.speedy = -10
 
     def update(self):
         self.rect.y += self.speedy
